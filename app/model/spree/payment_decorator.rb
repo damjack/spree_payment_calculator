@@ -1,4 +1,4 @@
-Payment.class_eval do
+Spree::Payment.class_eval do
   has_one :adjustment, :as => :source
   before_save :remove_old_adjustment
   after_save :ensure_correct_adjustment, :update_order, :if => Proc.new {|p| !p.payment_method.calculator.blank?}
