@@ -1,0 +1,17 @@
+class PaymentCalculator::PerItem < Calculator
+  preference :amount, :decimal, :default => 0
+  
+  # Register the calculator
+  def self.register
+    super
+    PaymentMethod.register_calculator(self)
+  end
+  
+  def self.description
+    I18n.t("flat_rate_per_item")
+  end
+
+  def compute(object=nil)
+    self.preferred_amount * object.line_items.length
+  end
+end

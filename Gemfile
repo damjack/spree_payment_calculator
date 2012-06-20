@@ -1,13 +1,16 @@
 source 'http://rubygems.org'
 
-group :test do
-  gem 'ffaker'
-end
+gem 'sqlite3'
 
-if RUBY_VERSION < "1.9"
-  gem "ruby-debug"
-else
-  gem "ruby-debug19"
+gem 'spree', '~> 0.70.5'
+
+group :test do
+  gem 'rspec-rails', '= 2.6.1'
+  gem 'database_cleaner', '= 0.6.7'
+  gem 'nokogiri'
+  gem 'capybara', '1.0.1'
+  gem 'faker'
+  gem 'factory_girl'
 end
 
 gemspec
