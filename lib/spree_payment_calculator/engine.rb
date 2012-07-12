@@ -24,6 +24,7 @@ module SpreePaymentCalculator
     end
     initializer 'spree.register.calculators' do |app|
       app.config.spree.calculators.payment_methods = [
+        PaymentCalculator::DefaultTax,
         PaymentCalculator::PriceSack,
         PaymentCalculator::FlatPercentItemTotal,
         PaymentCalculator::FlatRate,

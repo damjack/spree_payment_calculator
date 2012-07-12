@@ -1,17 +1,23 @@
+require_dependency 'spree/calculator'
+
 module Spree
   class PaymentCalculator::PriceSack < Calculator
     preference :minimal_amount, :decimal, :default => 0
     preference :normal_amount, :decimal, :default => 0
     preference :discount_amount, :decimal, :default => 0
 
+    attr_accessible :preferred_minimal_amount,
+                    :preferred_normal_amount,
+                    :preferred_discount_amount
+
     def self.description
-      I18n.t("price_sack")
+      I18n.t(:price_sack)
     end
 
     # as object we always get line items, as calculable we have Coupon, ShippingMethod
     def compute(object)
       if object.is_a?(Array)
-        base = object.map{ |o| o.respond_to?(:amount) ? o.amount : o.to_d }.sum
+        base = object.map { |o| o.respond_to?(:amount) ? o.amount : o.to_d }.sum
       else
         base = object.respond_to?(:amount) ? object.amount : object.to_d
       end
