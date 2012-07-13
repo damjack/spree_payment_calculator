@@ -17,12 +17,11 @@ module SpreePaymentCalculator
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/overrides/*.rb")) do |c|
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
-      
-      Dir.glob(File.join(File.dirname(__FILE__), "../../lib/spree/environment/calculators.rb")) do |c|
-        Rails.application.config.cache_classes ? require(c) : load(c)
-      end
     end
+    
     initializer 'spree.register.calculators' do |app|
+      app.config.spree.calculators.add_class('payment_methods') 
+      
       app.config.spree.calculators.payment_methods = [
         PaymentCalculator::PriceSack,
         PaymentCalculator::FlatPercentItemTotal,
