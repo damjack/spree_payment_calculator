@@ -20,9 +20,29 @@ module SpreePaymentCalculator
     end
     
     initializer 'spree.register.calculators' do |app|
-      app.config.spree.calculators.add_class('payment_methods') 
+      if Gem::Specification::find_by_name('spree_paypal_express')
+        app.config.spree.calculators.add_class('billing_integrations')
+        app.config.spree.calculators.billing_integrations = [
+          PaymentCalculator::PriceSack,
+          PaymentCalculator::FlatPercentItemTotal,
+          PaymentCalculator::FlatRate,
+          PaymentCalculator::FlexiRate,
+          PaymentCalculator::PerItem
+        ]
+      end
+      
+      app.config.spree.calculators.add_class('payment_methods')
+      app.config.spree.calculators.add_class('gateways')
       
       app.config.spree.calculators.payment_methods = [
+        PaymentCalculator::PriceSack,
+        PaymentCalculator::FlatPercentItemTotal,
+        PaymentCalculator::FlatRate,
+        PaymentCalculator::FlexiRate,
+        PaymentCalculator::PerItem
+      ]
+      
+      app.config.spree.calculators.gateways = [
         PaymentCalculator::PriceSack,
         PaymentCalculator::FlatPercentItemTotal,
         PaymentCalculator::FlatRate,
