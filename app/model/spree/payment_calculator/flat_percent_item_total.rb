@@ -6,8 +6,10 @@ module Spree
     
     attr_accessible :preferred_flat_percent
 
+    attr_accessible :preferred_flat_percent
+
     def self.description
-      I18n.t("flat_percent")
+      I18n.t(:flat_percent)
     end
 
     def compute(object)

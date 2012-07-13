@@ -2,14 +2,14 @@ require_dependency 'spree/calculator'
 
 module Spree
   class PaymentCalculator::FlexiRate < Calculator
-    preference :first_item,      :decimal, :default => 0
-    preference :additional_item, :decimal, :default => 0
-    preference :max_items,       :decimal, :default => 0
-    
+    preference :first_item,      :decimal, :default => 0.0
+    preference :additional_item, :decimal, :default => 0.0
+    preference :max_items,       :integer, :default => 0
+
     attr_accessible :preferred_first_item, :preferred_additional_item, :preferred_max_items
-    
+
     def self.description
-      I18n.t("flexible_rate")
+      I18n.t(:flexible_rate)
     end
 
     def self.available?(object)
