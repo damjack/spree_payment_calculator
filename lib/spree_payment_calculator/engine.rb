@@ -18,7 +18,7 @@ module SpreePaymentCalculator
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
       
-      Dir.glob(File.join(File.dirname(__FILE__), "../../lib/spree/environment/calculator.rb")) do |c|
+      Dir.glob(File.join(File.dirname(__FILE__), "../../lib/spree/environment/calculators.rb")) do |c|
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
     end

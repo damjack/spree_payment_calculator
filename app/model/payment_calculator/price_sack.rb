@@ -2,13 +2,7 @@ class PaymentCalculator::PriceSack < Calculator
   preference :minimal_amount, :decimal, :default => 0
   preference :normal_amount, :decimal, :default => 0
   preference :discount_amount, :decimal, :default => 0
-  
-  # Register the calculator
-  def self.register
-    super
-    PaymentMethod.register_calculator(self)
-  end
-  
+
   def self.description
     I18n.t("price_sack")
   end

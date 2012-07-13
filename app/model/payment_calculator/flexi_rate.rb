@@ -2,13 +2,7 @@ class PaymentCalculator::FlexiRate < Calculator
   preference :first_item,      :decimal, :default => 0
   preference :additional_item, :decimal, :default => 0
   preference :max_items,       :decimal, :default => 0
-  
-  # Register the calculator
-  def self.register
-    super
-    PaymentMethod.register_calculator(self)
-  end
-  
+
   def self.description
     I18n.t("flexible_rate")
   end
