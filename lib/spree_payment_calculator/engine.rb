@@ -26,12 +26,12 @@ module SpreePaymentCalculator
         end
         app.config.spree.calculators.add_class('billing_integrations')
         app.config.spree.calculators.billing_integrations = [
-          PaymentCalculator::DefaultTax,
-          PaymentCalculator::PriceSack,
-          PaymentCalculator::FlatPercentItemTotal,
-          PaymentCalculator::FlatRate,
-          PaymentCalculator::FlexiRate,
-          PaymentCalculator::PerItem
+          Spree::PaymentCalculator::DefaultTax,
+          Spree::PaymentCalculator::PriceSack,
+          Spree::PaymentCalculator::FlatPercentItemTotal,
+          Spree::PaymentCalculator::FlatRate,
+          Spree::PaymentCalculator::FlexiRate,
+          Spree::PaymentCalculator::PerItem
         ]
       end
 
@@ -39,21 +39,21 @@ module SpreePaymentCalculator
       app.config.spree.calculators.add_class('gateways')
 
       app.config.spree.calculators.payment_methods = [
-        PaymentCalculator::DefaultTax,
-        PaymentCalculator::PriceSack,
-        PaymentCalculator::FlatPercentItemTotal,
-        PaymentCalculator::FlatRate,
-        PaymentCalculator::FlexiRate,
-        PaymentCalculator::PerItem
+        Spree::PaymentCalculator::DefaultTax,
+        Spree::PaymentCalculator::PriceSack,
+        Spree::PaymentCalculator::FlatPercentItemTotal,
+        Spree::PaymentCalculator::FlatRate,
+        Spree::PaymentCalculator::FlexiRate,
+        Spree::PaymentCalculator::PerItem
       ]
 
       app.config.spree.calculators.gateways = [
-        PaymentCalculator::DefaultTax,
-        PaymentCalculator::PriceSack,
-        PaymentCalculator::FlatPercentItemTotal,
-        PaymentCalculator::FlatRate,
-        PaymentCalculator::FlexiRate,
-        PaymentCalculator::PerItem
+        Spree::PaymentCalculator::DefaultTax,
+        Spree::PaymentCalculator::PriceSack,
+        Spree::PaymentCalculator::FlatPercentItemTotal,
+        Spree::PaymentCalculator::FlatRate,
+        Spree::PaymentCalculator::FlexiRate,
+        Spree::PaymentCalculator::PerItem
       ]
     end
 
