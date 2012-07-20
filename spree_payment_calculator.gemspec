@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_payment_calculator'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.summary     = 'Added a calculator for PaymentMethod for Spree'
   #s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
